@@ -84,5 +84,24 @@ Este documento explica brevemente las licencias de software más utilizadas en e
 - [Creative Commons](https://creativecommons.org/licenses/)
 
 ---
+## 🧭 Árbol de decisión (Mermaid)
+
+```mermaid
+graph TD
+    A[¿Quieres liberar tu código?] --> B{¿Permitir uso comercial?}
+    B -- Sí --> C{¿Quieres que te den crédito?}
+    C -- Sí --> D[MIT o Apache 2.0]
+    C -- No --> E[CC0 - cuidado para software]
+    B -- No --> F[CC BY-NC o GPL con restricciones]
+    
+    D --> G[¿Te interesa protección de patentes?]
+    G -- Sí --> H[Apache 2.0]
+    G -- No --> I[MIT]
+
+    F --> J{¿Quieres código siempre abierto?}
+    J -- Sí --> K[GPL o AGPL]
+    J -- No --> L[Licencia cerrada o personalizada]
+
+```
 
 > Este documento es informativo y no constituye asesoría legal.
