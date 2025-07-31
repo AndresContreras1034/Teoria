@@ -1,0 +1,2 @@
+# parami
+teoria
