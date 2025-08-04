@@ -109,10 +109,15 @@ En las prácticas con **Packet Tracer**, se modela cómo se configuran dispositi
 - **Estándares vs implementaciones:** OSI da el “qué debe pasar” en cada capa; protocolos como TCP, IP, Ethernet son implementaciones reales que hacen que eso funcione.  
 
 ---
-
-## (Espacio para diagrama)
-
-*Aquí puedes insertar un diagrama estilo vertical mostrando las 7 capas, o una imagen referenciada de modelo OSI. Ejemplo: una imagen con cajas apiladas del 7 al 1 con breve nota en cada una.*
+| Capa | Nombre           | Ejemplos              |
+|------|------------------|-----------------------|
+| 7    | Aplicación       | HTTP, FTP, SMTP       |
+| 6    | Presentación     | TLS/SSL, compresión    |
+| 5    | Sesión           | NetBIOS, RPC          |
+| 4    | Transporte       | TCP, UDP              |
+| 3    | Red              | IP, ICMP              |
+| 2    | Enlace de datos  | Ethernet, Wi-Fi       |
+| 1    | Física           | Cables, señales       |
 
 ---
 
