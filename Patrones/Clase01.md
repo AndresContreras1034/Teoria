@@ -48,7 +48,9 @@ Para lograr calidad en el desarrollo de software, el ingeniero debe:
 ## ¿Cómo mejorar la calidad del software?
 
 Proceso cíclico basado en medición, ajuste y mejora continua:
-flowchart TD
+
+```mermaid
+graph TD
     A[Definir el objetivo de calidad] --> B[Medir la calidad del producto actual]
     B --> C[Comprender el proceso usado]
     C --> D[Ajustar el proceso si es necesario]
@@ -58,9 +60,7 @@ flowchart TD
     G --> H{¿Se cumple el objetivo?}
     H -- Sí --> I[Fin del ciclo]
     H -- No --> D
-
----
-
+```
 ## Gestión del tiempo – Bitácora PSP
 
 Uno de los pilares del PSP es el control y optimización del tiempo personal.
