@@ -18,6 +18,10 @@ El espectro electromagnético es **propiedad del Estado**.
 - **Hub (Concentrador):** distribuye la señal a todos los puertos.
 - **Repetidor de señales:** amplifica y extiende la señal.
 
+```mermaid
+graph TD
+    Hub --> Repetidor
+```
 ---
 
 ## 3. Señales
@@ -109,6 +113,13 @@ En una oficina, la señal eléctrica se transforma en luz para fibra óptica.
 - Enlace → **Trama**  
 - Física → **Bits**
 
+```mermaid
+graph TD
+    A[Capa Aplicación: Datos] --> B[Capa Transporte: Segmento]
+    B --> C[Capa Red: Paquete/Datagrama]
+    C --> D[Capa Enlace: Trama/Frame]
+    D --> E[Capa Física: Bits]
+```
 ---
 
 ### 8.1 Protocolos
@@ -136,6 +147,18 @@ Deben ser iguales en ambos extremos para que haya comunicación.
 - Conexión directa entre dos dispositivos.
 - **Ventajas:** simple, barata, fácil de configurar.
 - **Desventajas:** insegura, no escalable, bajo rendimiento.
+  
+```mermaid
+graph TD
+    subgraph Cliente-Servidor
+        Cliente --> Servidor
+    end
+
+    subgraph Peer-to-Peer
+        Peer1 --- Peer2
+        Peer2 --- Peer3
+    end
+```
 
 ---
 
