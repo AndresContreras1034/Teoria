@@ -210,5 +210,67 @@ Ejemplo: en una universidad pueden estar conectados **3000 dispositivos** y sigu
 ## Relación con Datacenters y Nube
 - Los **datacenters** y las **nubes** requieren conectividad de red similar, pero la diferencia es **la escala**.  
 - Los proveedores de nube (**AWS, Azure, Google Cloud**) son proveedores de **infraestructura de cómputo**.  
-  - Ejemplo: si quiero conectarme a **Azure**, requiero el servicio que me habilite ese proveedor.  
+  - Ejemplo: si quiero conectarme a **Azure**, requiero el servicio que me habilite ese proveedor.
+ 
+  # Internet Connections
+
+Históricamente, las conexiones a Internet han cambiado y seguirán cambiando.  
+Es muy común que las comunicaciones se realicen mediante esa red grande llamada **Internet**.
+
+Antes no era tan usada para hacer comunicación, y siempre se necesitaba un proveedor de servicio de Internet.  
+En el camino han pasado diferentes cosas. Por ejemplo, si eres un usuario final:  
+- En Bogotá ya no existen opciones de **DSL**.  
+- En 8 a 10 años se dejaron de prestar ciertos servicios.  
+
+---
+
+## Conexiones corporativas
+
+Las empresas pueden utilizar **líneas dedicadas**:  
+- Alquilan tecnologías.  
+- Reservan circuitos.  
+
+El tráfico de los usuarios de Internet tiene servicios **personales** y **corporativos**.  
+Puede que usen la misma infraestructura, pero la conectividad es diferente.  
+Por eso se hacen **arriendos de tecnologías** para dar más prioridad a los corporativos.  
+
+---
+
+## Siglas importantes
+
+- **FTTH**  
+- **NAP**  
+- **DSL**  
+- **HFC**  
+- **SDN**  
+- **CDN**  
+- **MPCS** → Tecnología que se usa a nivel WAN, puede funcionar como capa **nivel 2 y 3**.  
+
+Uno de los paradigmas anteriores era: ¿cómo hacemos para que todo vaya por el medio físico?  
+Se hablaba de **redes convergentes**, que aparecen cuando todos los servicios pasan por la misma red:  
+- Ver videos  
+- Ver películas  
+- Compartir datos  
+
+---
+
+## Reliable Network
+
+Esto es algo nuevo. Antes, las redes no lo planteaban:  
+- Prestaban el servicio que querían prestar.  
+- Cuando todo empieza a converger, aparecen problemas por la diversidad de tipos de información y cómo gestionarla.  
+
+Antes, el servicio a veces existía y a veces no. Hoy en día casi siempre está disponible.  
+- Raramente se va la luz actualmente.  
+- La tecnología de la luz sigue siendo la misma.  
+- Lo que ha cambiado es que la red sea **confiable**.  
+
+Para lograr esto, se ajustó la infraestructura y las capas para soportar errores.  
+Hoy, para que una red se considere **confiable**, se requieren 4 elementos:  
+
+1. **Fallo a la tolerancia**  
+2. **Escalabilidad**  
+3. **Calidad de servicio**  
+4. **Seguridad**
+
 
