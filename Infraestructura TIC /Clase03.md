@@ -146,3 +146,69 @@ La topología tiene que ver con **distribución**, por eso existen la **lógica*
 ![Diagrama de topología](https://ccnadesdecero.es/wp-content/uploads/2017/11/Diagrama-Red-de-Topolog%C3%ADa-F%C3%ADsica.png)
 
 Fuente: [CCNA desde Cero](https://ccnadesdecero.es/representacion-red-diagrama-de-topologia/)  
+
+
+## Network of Many Sizes
+
+### Small Home
+- Conecta pocos computadores entre sí y a internet.  
+
+### SOHO (Small Office / Home Office)
+- Permite que los computadores dentro de un hogar o una oficina remota se conecten a una red corporativa.  
+
+### Medium / Large
+- Conecta **cientos o miles de computadores** en una empresa o campus.  
+- Ejemplo: universidades, empresas multinacionales.  
+
+### Worldwide
+- Conecta **cientos de millones de computadores en todo el mundo**.  
+- Ejemplo: cada vez que hablamos de la **World Wide Web (WWW)** nos referimos a este tipo de red.  
+
+# Tipos de Redes
+
+## Clasificación por área de cobertura
+- **PAN (Personal Area Network):** Red personal.  
+- **LAN (Local Area Network):** Red de área local.  
+- **MAN (Metropolitan Area Network):** Red metropolitana.  
+- **WAN (Wide Area Network):** Red de área amplia.  
+- **GAN (Global Area Network):** Red de alcance global.  
+
+---
+
+## Enfoque en las prácticas
+Generalmente se trabaja con **LAN** o **WAN**.
+
+---
+
+## Factores que varían en las infraestructuras de red
+- Tamaño del área de cobertura.  
+- Número de usuarios conectados.  
+- Cantidad de tipos o servicios disponibles.  
+- Área de responsabilidad.  
+
+⚠️ **Importante:**  
+¿Si conecto muchos equipos es una WAN? **No.**  
+Ejemplo: en una universidad pueden estar conectados **3000 dispositivos** y sigue siendo una **LAN**.
+
+---
+
+## Administración de la red
+- A mayor número de usuarios/dispositivos → más recursos humanos y tecnológicos para administrarla.  
+
+---
+
+## Diferencias clave
+- Una **WAN** conecta múltiples **LAN**.  
+  - Ejemplo: la red de **Claro** es una **WAN**.  
+  - Claro, a su vez, puede necesitar otros proveedores.  
+
+- Una **LAN** es **única** si todos los recursos dependen de un solo dueño o entidad.  
+  - Ejemplo: comunicación entre múltiples edificios conectados por **fibra óptica** (todo pertenece a una misma organización).  
+
+---
+
+## Relación con Datacenters y Nube
+- Los **datacenters** y las **nubes** requieren conectividad de red similar, pero la diferencia es **la escala**.  
+- Los proveedores de nube (**AWS, Azure, Google Cloud**) son proveedores de **infraestructura de cómputo**.  
+  - Ejemplo: si quiero conectarme a **Azure**, requiero el servicio que me habilite ese proveedor.  
+
