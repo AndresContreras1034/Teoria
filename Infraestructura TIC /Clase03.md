@@ -104,21 +104,45 @@ Los dispositivos intermedios son los que gestionan la comunicación entre dispos
 - Utilizan ondas **electromagnéticas**.  
 - Las primeras redes inalámbricas surgieron mucho antes, con el desarrollo de **satélites en los años 1930–1940**.
 
-- ## Diagrama de topología
 
-Son demasiado comunes utilizarlos,  
-una red de comunicaciones siempre va a tener una representación:  
+## Diagrama de topología
+
+Son demasiado comunes utilizarlos.  
+Una red de comunicaciones siempre va a tener una representación:  
 - **Diagrama de topología lógica**  
 - **Diagrama de topología física**
 
 La estructura es similar.  
-La disposición de los dispositivos y las conexiones se mantienen, lo que se diferencia es lo que se muestra:  
+La disposición de los dispositivos y las conexiones se mantienen, lo que se diferencia es lo que se muestra:
 
-- El diagrama lógico describe **las relaciones y conexiones lógicas** entre dispositivos.  
 - El diagrama físico **ilustra las conexiones físicas y los dispositivos intermediarios de la red**.  
-- La **distribución física** tiene que ver con la ubicación en el sitio.  
+  - La **distribución física** tiene que ver con la ubicación en el sitio.  
+  - Debe tener la distribución exacta para no perder tiempo.  
+
+- El diagrama lógico **ilustra los puertos, los dispositivos y el esquema de direccionamiento**.  
+  - La distribución física no tiene que ver necesariamente con la distribución lógica.  
+  - Aunque físicamente estén en el mismo espacio, **lógicamente pueden pertenecer a redes diferentes**.  
+
+---
+
+### Importancia de cada tipo
+- Si debo **solucionar algo lógico**, debo irme al **diagrama lógico** para ver cómo son las dependencias.  
+- Los dispositivos deben representarse con la **interfaz que están utilizando**: *slots* e *interfaces*.  
+- Todos los dispositivos que vamos a utilizar necesariamente tienen **bocas (interfaces físicas)** para comunicar y conectar.  
+
+En comunicaciones:  
+- Cuando hablamos de **puertos**, nos referimos a la **capa de transporte**.  
+- El puerto es una disposición lógica que se relaciona con la **capa de sesión**.  
+
+---
+
+### Conclusión
+Muchas veces estos planos se deben tener en la cabeza, para saber a dónde se debe conectar.  
+La topología tiene que ver con **distribución**, por eso existen la **lógica** y la **física**.  
+➡️ Por cada red debemos tener **dos planos**: uno lógico y uno físico.  
+
+---
 
 ![Diagrama de topología](https://ccnadesdecero.es/wp-content/uploads/2017/11/Diagrama-Red-de-Topolog%C3%ADa-F%C3%ADsica.png)
 
-
-
+Fuente: [CCNA desde Cero](https://ccnadesdecero.es/representacion-red-diagrama-de-topologia/)  
