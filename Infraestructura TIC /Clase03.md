@@ -102,5 +102,23 @@ Los dispositivos intermedios son los que gestionan la comunicación entre dispos
 - Existen muchos **estándares** en este mundo.  
 - Las redes de **telefonía celular** forman parte de este ecosistema inalámbrico.  
 - Utilizan ondas **electromagnéticas**.  
-- Las primeras redes inalámbricas surgieron mucho antes, con el desarrollo de **satélites en los años 1930–1940**.  
+- Las primeras redes inalámbricas surgieron mucho antes, con el desarrollo de **satélites en los años 1930–1940**.
+
+- ## Diagrama de topología
+
+Son demasiado comunes utilizarlos,  
+una red de comunicaciones siempre va a tener una representación:  
+- **Diagrama de topología lógica**  
+- **Diagrama de topología física**
+
+La estructura es similar.  
+La disposición de los dispositivos y las conexiones se mantienen, lo que se diferencia es lo que se muestra:  
+
+- El diagrama lógico describe **las relaciones y conexiones lógicas** entre dispositivos.  
+- El diagrama físico **ilustra las conexiones físicas y los dispositivos intermediarios de la red**.  
+- La **distribución física** tiene que ver con la ubicación en el sitio.  
+
+![Diagrama de topología](https://ccnadesdecero.es/wp-content/uploads/2017/11/Diagrama-Red-de-Topolog%C3%ADa-F%C3%ADsica.png)
+
+
 
