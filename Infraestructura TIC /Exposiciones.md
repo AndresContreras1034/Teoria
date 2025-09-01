@@ -1,5 +1,5 @@
 
-#Exposiciones Infraestructura TIC
+# Exposiciones Infraestructura TIC
 > **Introducción a la Sección:**  
 > Esta sección presenta los contenidos principales de la exposición, incluyendo conceptos, tecnologías y aplicaciones.  
 > Los detalles pueden desplegarse haciendo clic en la flecha a la izquierda del título.
