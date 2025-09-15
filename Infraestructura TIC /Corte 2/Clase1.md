@@ -348,6 +348,79 @@ En redes WAN existen principalmente 3 tipos de topologías:
    - Cada dispositivo está conectado con todos los demás.  
    - Provee alta disponibilidad y redundancia.  
    - Requiere más recursos porque cada nodo debe poder comunicarse con todos.
+   - 
+   # Tramas en la Capa de Enlace de Datos
+
+En la **capa de enlace de datos** existen múltiples **formatos de trama**, que varían dependiendo del protocolo utilizado.  
+Aunque los detalles cambian entre protocolos, la estructura general es **similar**:
+
+---
+
+## Estructura general de una trama
+
+- **Header (Encabezado)**  
+  - Frame Start  
+  - Addressing (direcciones de origen y destino)  
+  - Type (indica protocolo de capa 3)  
+  - Control (información de control)
+
+- **Data (Datos)**  
+  - Contiene el **paquete** proveniente de la **capa 3 (red)**.
+
+- **Trailer (Final de trama)**  
+  - Error detection (detección de errores, usualmente **FCS – Frame Check Sequence**)  
+  - Frame stop  
+
+La trama es la **PDU (Unidad de Datos de Protocolo)** de la capa de enlace de datos.
+
+---
+
+## Direccionamiento en Capa 2
+
+- Los **campos de direccionamiento** existen en todo protocolo de capa 2.  
+- Incluyen **dirección de origen** y **dirección de destino**.  
+- El campo **Type** suele indicar qué protocolo de **capa 3** se está transportando.  
+- El direccionamiento en capa 2 **solo tiene sentido en el enlace local**:  
+  - Cambia en cada salto de red.  
+  - La **capa 3 (IP)** se mantiene intacta.  
+
+Ejemplo de flujo:
+
+```mermaid
+flowchart LR
+    PC[PC] --> R1[Router]
+    R1 --> R2[Router]
+    R2 --> WS[Web Server]
+
+    subgraph Capa2
+    PC-->|Trama L2|R1
+    R1-->|Trama L2|R2
+    R2-->|Trama L2|WS
+    end
+
+    subgraph Capa3
+    PC-->|Paquete IP|WS
+    end
+```
+
+En el gráfico se observa cómo las **tramas de capa 2** cambian en cada salto,  
+pero el **paquete de capa 3 (IP)** permanece igual de origen a destino.
+
+---
+
+## Dependencia del medio físico
+
+El protocolo usado en la capa de enlace depende del **medio físico**:
+
+- **Ethernet (IEEE 802.3)** → común en redes LAN cableadas, usando cobre o fibra óptica.  
+- **Wi-Fi (IEEE 802.11)** → usado en redes LAN inalámbricas.  
+- **PAN (IEEE 802.15)** → redes de área personal, como Bluetooth.  
+- **PPP (Point-to-Point Protocol)** → típico en enlaces punto a punto, muchas veces sobre fibra o cobre.  
+
+---
+
+
+
 
 
 
