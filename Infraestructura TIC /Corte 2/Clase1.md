@@ -176,5 +176,62 @@ El protocolo más común es **CSMA (Carrier Sense Multiple Access)**, que signif
 
 ---
 
+# Dominios de Colisión y Broadcast
+
+## Dominio de Colisión
+
+- **Definición:**  
+  Un **dominio de colisión** es un entorno donde varios dispositivos comparten el mismo medio y pueden generar colisiones si transmiten al mismo tiempo.  
+
+- **Ejemplo:**  
+  Un salón de clase donde todos hablan simultáneamente → se produce colisión de información.  
+  Si en un edificio hay 20 salones, pueden existir 20 dominios de colisión.  
+
+- **Hubs:**  
+  - Los **hubs** no dividen dominios de colisión.  
+  - Todos los dispositivos conectados al hub forman un único dominio de colisión.  
+  - Uso del medio es ineficiente:  
+    - Ejemplo histórico → con hub se aprovechaba solo un **30% del tiempo efectivo** (de 60 minutos, solo 18 realmente útiles).  
+
+---
+
+## Dominio de Broadcast
+
+- **Definición:**  
+  Un **dominio de broadcast** es el entorno en el que, cuando un dispositivo envía un mensaje broadcast, **todos los demás dispositivos pueden escucharlo**.  
+- Está relacionado a veces con el dominio de colisión, pero no son lo mismo.  
+
+---
+
+## Impacto del Tipo de Dispositivo
+
+- **Capa Física (Hubs):**  
+  - Amplían el dominio de colisión al número de dispositivos conectados.  
+  - No segmentan ni mejoran eficiencia.  
+
+- **Capa 2 (Switches):**  
+  - Los **switches** subdividen los dominios de colisión.  
+  - Implementan **microsegmentación**, cada enlace es un dominio de colisión independiente.  
+  - Mejoran significativamente la eficiencia de la red.  
+
+- **Capa 3 (Routers):**  
+  - Los **routers** dividen los **dominios de broadcast**.  
+  - Cada interfaz del router crea un nuevo dominio de broadcast y de colisión.  
+
+---
+
+## Ejemplos de Escenarios
+
+- **Con Hub:**  
+  - 30 hubs conectados → **1 único dominio de colisión**.  
+  - Todos los dispositivos compiten por el mismo medio.  
+  - Ineficiencia: múltiples colisiones.  
+
+- **Con Switch:**  
+  - Muchos dominios de colisión (uno por puerto).  
+  - Ningún dispositivo compite con otro en el mismo medio.  
+  - Comunicación más eficiente y sin colisiones.  
+
+---
 
 
