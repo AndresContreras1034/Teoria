@@ -1,4 +1,4 @@
-# Clase 2 – Capa de Enlace de Datos (Data Link Layer)
+# Clase 1 – Capa de Enlace de Datos (Data Link Layer)
 
 La **capa 2** se puede entender como un “teléfono roto”: en el proceso de comunicación todo pasa de **vecino a vecino**.  
 Un dispositivo se conecta directamente a otro, y si se introduce un error, este se mantiene.
