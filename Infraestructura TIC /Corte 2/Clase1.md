@@ -234,4 +234,54 @@ El protocolo más común es **CSMA (Carrier Sense Multiple Access)**, que signif
 
 ---
 
+# Subcapa MAC y Estándares Ethernet
+
+La **subcapa MAC (Medium Access Control)** regula cómo los dispositivos acceden al medio físico compartido.  
+Aunque parece un paso sencillo (“entrar al medio”), en realidad implica manejar **colisiones, control de acceso y coordinación** con protocolos de mayor nivel.  
+
+Todo lo que sucede en la **capa de enlace de datos** depende directamente del **medio físico** y del estándar implementado.  
+
+---
+
+## Ethernet (IEEE 802.3)
+
+- Primer estándar ampliamente usado para redes locales (LAN).  
+- Velocidad original: **10 Mbps**.  
+- Acceso al medio: **CSMA/CD (Carrier Sense Multiple Access with Collision Detection)**.  
+- Se utilizaban topologías de bus con cable coaxial y, posteriormente, cableado UTP.  
+- Hoy se emplea más en su forma de **Ethernet conmutado (switching)**, eliminando colisiones.  
+
+---
+
+## Fast Ethernet (IEEE 802.3u)
+
+- Evolución de Ethernet para soportar **100 Mbps**.  
+- Compatibilidad con Ethernet a 10 Mbps (autonegociación).  
+- Mantiene el uso de **CSMA/CD**, aunque con switches las colisiones desaparecen.  
+- Estándares físicos:
+  - **100BASE-TX** (UTP Cat 5, 2 pares).  
+  - **100BASE-FX** (fibra óptica).  
+
+---
+
+## Gigabit Ethernet (IEEE 802.3z / 802.3ab)
+
+- Aumenta la velocidad hasta **1 Gbps (1000 Mbps)**.  
+- Estándares físicos:
+  - **1000BASE-SX**: fibra óptica multimodo.  
+  - **1000BASE-LX**: fibra óptica monomodo.  
+  - **1000BASE-T**: cableado UTP Cat 5e o superior.  
+- Se mantiene la compatibilidad con Fast Ethernet y Ethernet.  
+- Usualmente implementado con switches, eliminando la necesidad real de **CSMA/CD**.  
+
+---
+
+## Resumen
+
+- **Ethernet (10 Mbps)**: inicio de las LAN modernas.  
+- **Fast Ethernet (100 Mbps)**: mayor velocidad, transición al uso de switches.  
+- **Gigabit Ethernet (1 Gbps)**: estándar dominante en redes cableadas actuales.  
+
+
+
 
