@@ -283,5 +283,72 @@ Todo lo que sucede en la **capa de enlace de datos** depende directamente del **
 - **Gigabit Ethernet (1 Gbps)**: estándar dominante en redes cableadas actuales.  
 
 
+# Subcapa LLC y funciones de la Capa 2
+
+## Subcapa LLC
+La **subcapa LLC (Logical Link Control)** es la encargada de comunicarse directamente con la **capa de red**.  
+A lo largo de cada salto en el camino, un dispositivo de red realiza 4 acciones básicas de la **capa de enlace de datos**:
+
+1. **Aceptar la trama** desde el medio de red.  
+2. **Desencapsular la trama** para exponer el paquete encapsulado.  
+3. **Re-encapsular el paquete** en una nueva trama.  
+4. **Reenviar la nueva trama** hacia el siguiente segmento de red.
+
+---
+
+## Detección y corrección de errores
+En la capa 2 existen métodos para garantizar la integridad de los datos transmitidos. Algunos de los más importantes son:
+
+- **Códigos de Hamming**: permiten detectar y corregir errores de un solo bit.  
+- **CRC (Cyclic Redundancy Check / Códigos de redundancia cíclica)**: usados para detectar errores en tramas de datos.  
+
+Estas técnicas son fundamentales para asegurar una transmisión confiable en medios ruidosos.
+
+---
+
+## Acceso al medio
+Un ejemplo del proceso:
+
+- Llega la señal por el cable.  
+- El **router** recibe la trama (capa 2).  
+- **Desencapsula** la trama → obtiene el paquete (capa 3).  
+- **Toma una decisión** en la capa 3 (por ejemplo, hacia dónde encaminar el paquete).  
+- **Encapsula nuevamente** en una trama de capa 2.  
+- Envía al medio físico.  
+
+Este proceso repetido genera tráfico y sobrecarga, lo que explica por qué cuando se usan múltiples aplicaciones en un PC puede colgarse.
+
+---
+
+# Topologías de Red
+
+## Tipos de topología
+- **Topología física**: describe **dónde** están conectados los dispositivos físicamente.  
+  - Ejemplo: salón → edificio (UPC) → Colombia → América → Mundo.  
+
+- **Topología lógica**: describe **cómo** se comunican los dispositivos y qué direcciones usan.  
+  - Ejemplo: dirección IP, dirección de red o ruta lógica.
+
+---
+
+# Topologías WAN
+
+En redes WAN existen principalmente 3 tipos de topologías:
+
+1. **Punto a punto**  
+   - La más simple y común.  
+   - Conexión directa entre dos dispositivos finales.  
+   - Ejemplo: Internet de casa conectado al proveedor.  
+
+2. **Hub and Spoke**  
+   - Similar a una topología en estrella.  
+   - Un nodo central se conecta con los demás nodos (los “radios”).  
+
+3. **Malla (Mesh)**  
+   - Cada dispositivo está conectado con todos los demás.  
+   - Provee alta disponibilidad y redundancia.  
+   - Requiere más recursos porque cada nodo debe poder comunicarse con todos.
+
+
 
 
