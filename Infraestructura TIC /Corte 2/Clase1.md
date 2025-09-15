@@ -418,6 +418,31 @@ El protocolo usado en la capa de enlace depende del **medio físico**:
 - **PPP (Point-to-Point Protocol)** → típico en enlaces punto a punto, muchas veces sobre fibra o cobre.  
 
 ---
+# Direcciones físicas en la red (Dirección MAC)
+
+Todos los dispositivos que forman parte de una red poseen una **dirección física** (MAC).  
+**Ejemplo:**  
+**Dirección física: D2-39-57-67-E3-31**  
+
+---
+
+## Estructura de la dirección MAC
+
+- Una MAC tiene **48 bits (6 bytes)**, normalmente representados en hexadecimal en 6 bloques de 2 caracteres.  
+- **Primeros 24 bits (OUI — Organizationally Unique Identifier):**  
+  - Identifican al **fabricante**.  
+  - Corresponden a los **tres primeros bloques** (por ejemplo `D2-39-57`).  
+- **Últimos 24 bits:**  
+  - Identifican de forma **única** la tarjeta dentro del espacio del fabricante.  
+  - Son asignados por el fabricante como número de serie para esa NIC.
+
+---
+
+## Notas importantes
+
+- En teoría **no debería haber más de una tarjeta** con la misma dirección física globalmente.  
+- En la práctica puede haber duplicados por virtualización, clonación o suplantación (spoofing).  
+- Para que un dispositivo responda en la red, **necesita conocer la MAC de destino** a la que debe enviar datos.
 
 
 
