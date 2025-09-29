@@ -339,3 +339,28 @@ graph TD
 
     SW1 --- T[Trunk 802.1Q: VLANs 10,20 + Native VLAN] --- SW2
 ```
+## Voice VLAN
+
+Las VLAN de voz (Voice VLAN) son un tipo especial de VLAN dedicada al tráfico de telefonía IP (VoIP).  
+Se requiere una VLAN separada porque el tráfico de voz tiene necesidades muy específicas:
+
+- **Ancho de banda garantizado** (assured bandwidth).  
+- **Alta prioridad de QoS (Quality of Service)**, para que las llamadas no se vean interrumpidas.  
+- **Capacidad de evitar congestión**.  
+- **Baja latencia (<150 ms)** desde origen hasta destino, ya que cualquier retardo degrada la calidad de la llamada.
+
+> La red completa debe estar diseñada para soportar voz: switches, routers, enlaces WAN y configuraciones de QoS.
+
+### Características clave
+- Una **Voice VLAN** no reemplaza a la VLAN de datos, sino que se configura **en paralelo**.  
+- En una misma interfaz física del switch (ejemplo: FastEthernet 0/1) pueden coexistir:  
+  - **Data VLAN** → para tráfico de usuarios (navegación, aplicaciones).  
+  - **Voice VLAN** → para tráfico de teléfonos IP.  
+
+### Ejemplo práctico
+En entornos como universidades o empresas, donde se usa un **PBX/conmutador telefónico IP**, la misma interfaz del switch conecta un **PC y un teléfono IP**, y ambos son diferenciados gracias a la configuración de VLAN de voz.  
+
+- El teléfono IP etiqueta su tráfico con la VLAN de voz.  
+- El PC sigue transmitiendo sobre la VLAN de datos.  
+
+De esta forma, aunque comparten el mismo puerto físico, **no son dos VLAN de la misma naturaleza**, sino una de voz y otra de datos.  
