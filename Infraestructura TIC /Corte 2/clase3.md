@@ -248,3 +248,94 @@ Salida simplificada:
 - Cada vez que un dispositivo quiere comunicarse, revisa su tabla ARP para saber la **MAC** asociada a una **IP**.  
 - Si no existe, el dispositivo envía una **consulta ARP broadcast** en la red.  
 
+
+## VLAN (Virtual Local Area Network)
+
+Una **VLAN** es una red lógica que se crea dentro de un switch físico.  
+Permite segmentar la red en **grupos más pequeños** de dispositivos, aunque todos estén conectados al mismo switch físico.
+
+### Características principales:
+- **Segmentación lógica:** no importa la ubicación física del dispositivo.
+- **Seguridad:** los dispositivos de diferentes VLAN no se comunican directamente sin un router o capa 3.
+- **Optimización:** reduce el dominio de broadcast y mejora el rendimiento.
+- **Flexibilidad:** un mismo switch puede soportar múltiples redes lógicas.
+
+### Consideraciones:
+- Si **no necesitas VLAN**, la red puede funcionar sin problemas, pero estarás en una **única VLAN por defecto** (generalmente la VLAN 1).
+- Existen VLANs que **no se pueden borrar** (como la VLAN 1 en muchos fabricantes).
+- Que una tecnología deje de ser actualizada **no significa que deje de existir**:  
+  muchas redes todavía usan configuraciones antiguas porque siguen funcionando.
+
+### Ejemplo gráfico en Mermaid
+```mermaid
+graph TD
+    A[PC VLAN 10] -->|Switch| B[(Switch)]
+    C[PC VLAN 20] -->|Switch| B
+    B -->|Router Capa 3| D[PC VLAN 10]
+    B -->|Router Capa 3| E[PC VLAN 20]
+```
+## VLANs y Enlaces Troncales
+
+### VLAN Nativa
+- La **VLAN nativa** se utiliza exclusivamente en enlaces **troncales (802.1Q)**.
+- En un enlace troncal, **todas las tramas se etiquetan**, excepto las que pertenecen a la **VLAN nativa**.
+- Sirve como una especie de "canal sin etiqueta".
+- Por defecto suele ser la **VLAN 1**, aunque por seguridad se recomienda cambiarla.
+
+---
+
+### Enlaces Troncales (Trunk Links)
+- Un **enlace troncal** permite que varias **VLANs viajen por un mismo enlace físico**.
+- Se comporta como un **multiplexor de VLANs**:  
+  combina múltiples VLAN en una sola conexión entre switches o entre switch–router.
+- Estándar más común: **IEEE 802.1Q**.
+- Los **trunks** se configuran principalmente entre:
+  - **Switch ↔ Switch**
+  - **Switch ↔ Router (Router-on-a-Stick)**
+  - **Switch ↔ Servidores Virtualizados**
+
+> Antes de los trunks, se necesitaban **varios enlaces físicos**, uno por VLAN.  
+> Los enlaces troncales resolvieron ese problema al **unificar todas las VLAN en un único enlace físico**.
+
+---
+
+### Tipos de VLAN
+
+1. **Data VLAN**  
+   - Dedicada al tráfico generado por los usuarios.  
+   - La **VLAN por defecto** (generalmente VLAN 1) es también una **Data VLAN**, ya que todos los puertos están asignados a ella inicialmente.  
+
+2. **Native VLAN**  
+   - Usada en enlaces troncales.  
+   - Todas las tramas se etiquetan en un enlace troncal **excepto** las de la VLAN nativa.  
+   - Se recomienda **no usar la VLAN 1** como nativa por seguridad.  
+
+3. **Management VLAN**  
+   - Utilizada para **administración remota** del switch (SSH, Telnet, SNMP).  
+   - No debería mezclarse con el tráfico de usuarios.  
+   - Normalmente corresponde a la VLAN configurada como **SVI (Switch Virtual Interface)** en un switch capa 2.  
+
+---
+
+### Ejemplo gráfico en Mermaid
+
+
+```mermaid
+graph TD
+    subgraph SW1[Switch 1]
+        A1[PC VLAN 10]
+        A2[PC VLAN 20]
+    end
+
+    subgraph SW2[Switch 2]
+        B1[PC VLAN 10]
+        B2[PC VLAN 20]
+    end
+
+    A1 --> SW1
+    A2 --> SW1
+    B1 --> SW2
+    B2 --> SW2
+
+    SW1 --- T[Trunk 802.1Q: VLANs 10,20 + Native VLAN] --- SW2
+```
