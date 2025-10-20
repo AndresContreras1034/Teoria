@@ -99,23 +99,35 @@
 2. **Sensibilidad al ruido** e interferencias electromagnéticas debido al coaxial.  
 3. **Mantenimiento constante**: el coaxial se degrada con el tiempo.  
 4. Aunque la instalación es económica, los **costos operativos pueden ser altos**.  
+## Gráfico en Mermaid
 
-flowchart LR
+## Gráfico en Mermaid
+
+```mermaid
+graph TD
+    A[Headend] -->|Fibra optica| B[Nodo Optico]
+    subgraph Distribucion HFC
+        B -->|Downstream-Broadcast| C[CPE - Cliente 1]
+        B -->|Downstream-Broadcast| D[CPE - Cliente 2]
+        B -->|Downstream-Broadcast| E[CPE - Cliente 3]
+        C -->|Upstream-Subida| B
+        D -->|Upstream-Subida| B
+        E -->|Upstream-Subida| B
+    end
     subgraph Core Network
-        A[Headend]
-        B[Datacenter / Nodos Remotos]
+        F[Datacenter / Nodos Remotos]
     end
+    A --> F
 
-    A -->|Fibra óptica| C[Nodo Óptico]
+```
+## Conclusión
 
-    subgraph Distribución HFC
-        C -->|Downstream (Broadcast)| D[CPE - Cliente 1]
-        C -->|Downstream (Broadcast)| E[CPE - Cliente 2]
-        C -->|Downstream (Broadcast)| F[CPE - Cliente 3]
+La red **HFC (Hybrid Fiber-Coaxial)** combina lo mejor de la **fibra óptica** y el **cable coaxial**, permitiendo a los operadores ofrecer servicios de **televisión digital, internet y telefonía IP** con alta velocidad y cobertura amplia.  
 
-        D -->|Upstream (Subida)| C
-        E -->|Upstream (Subida)| C
-        F -->|Upstream (Subida)| C
-    end
+Gracias a la **Capa 2 (Enlace de Datos)** y al estándar **DOCSIS**, la red garantiza **control de errores, acceso ordenado al medio y calidad de servicio (QoS)**, optimizando tanto el downstream como el upstream.  
 
-    A --> B
+Entre sus ventajas destacan la **madurez de la infraestructura**, la **capacidad de aprovechar redes existentes** y la **buena relación costo-beneficio**. Sin embargo, presenta limitaciones como **ancho de banda asimétrico**, **sensibilidad al ruido** y **mantenimiento constante del coaxial**.  
+
+En definitiva, HFC representa una **solución híbrida eficiente** que equilibra **rendimiento, cobertura y costos**, siendo una tecnología confiable para los servicios de acceso a Internet y transmisión de datos actuales.
+
+
