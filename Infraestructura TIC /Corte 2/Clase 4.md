@@ -209,3 +209,72 @@ graph TB
     S1 -.-> Note1[Native VLAN: 3000]
     S2 -.-> Note2[Native VLAN: 3000]
 ```
+### Conceptos clave
+
+- **No existen recetas universales en redes**  
+  - Cada red es diferente; lo que funciona en una no garantiza que funcione igual en otra.  
+  - La configuración depende de necesidades específicas del sitio, cantidad de usuarios, dispositivos y políticas de seguridad.  
+
+- **Almacenamiento en switches Cisco**  
+  - Todo lo que se guarda en la **Flash** es **no volátil**, como un respaldo.  
+    - Ejemplo: si borras el archivo `vlan.dat`, **pierdes todas las VLANs almacenadas**.  
+  - Siempre existe algún lugar donde se almacena la información de las VLANs.  
+
+- **VLAN extendidas (1006 a 4095)**  
+  - Normalmente usadas por **proveedores de servicios de comunicación (ISP)**.  
+  - Diferencia con VLAN normales: se almacenan en **Running Config (RAM)** y requieren respaldo frecuente.  
+  - Para usuarios finales es raro trabajar con estas VLANs.  
+
+- **VLAN normales (1 a 1005)**  
+  - Usadas en empresas y entornos académicos.  
+  - Pueden ser creadas, modificadas y borradas con facilidad.  
+
+---
+
+### Creación de VLANs en Cisco
+
+- Trabajaremos con **Packet Tracer** para prácticas académicas.  
+- Los mismos comandos aplican en **dispositivos físicos**, ajustando nombres de interfaces y puertos.  
+
+#### Comandos IOS básicos para VLANs
+
+| Tarea | Comando IOS | Descripción |
+|-------|------------|-------------|
+| Entrar al switch | `enable` | Acceder al modo privilegiado |
+| Entrar al modo de configuración | `configure terminal` | Permite configurar VLANs, interfaces, etc. |
+| Crear una VLAN | `vlan 10` | Crea VLAN con ID 10 |
+| Nombrar VLAN | `name Estudiantes` | Asigna un nombre descriptivo a la VLAN |
+| Mostrar VLANs | `show vlan brief` | Muestra número, nombre, estado y puertos de VLANs |
+| Asignar puerto a VLAN | `interface fastEthernet 0/1`<br>`switchport mode access`<br>`switchport access vlan 10` | Configura puerto como acceso y lo asigna a la VLAN |
+| Guardar configuración | `write memory` o `copy running-config startup-config` | Guarda la configuración en NVRAM para que persista tras reinicio |
+| Borrar VLAN | `no vlan 10` | Elimina la VLAN seleccionada |
+| Salir al modo anterior | `exit` | Retrocede un nivel de configuración |
+
+---
+
+### Ejemplo visual: VLANs y Trunk
+
+```mermaid
+graph TB
+    %% Switch de acceso
+    S1[Switch Acceso Capa 2]
+    S2[Switch Distribución Capa 3]
+
+    %% VLANs
+    PC1[PC Usuario A] -->|VLAN 10| S1
+    PC2[PC Usuario B] -->|VLAN 10| S1
+    PC3[PC Docente C] -->|VLAN 20| S1
+    Servidor1[Servidor Central] -->|VLAN 10 y 20| S2
+
+    %% Trunk entre switches
+    S1 ---|Trunk 802.1Q| S2
+
+    %% Nota VLAN nativa
+    S1 -.-> Note1[Native VLAN: 3000]
+    S2 -.-> Note2[Native VLAN: 3000]
+```
+- En **Packet Tracer** se simula igual que en equipos físicos; la práctica académica permite entender **trunks**, **VLANs nativas** y **asignación de puertos**.  
+
+- Siempre verificar la **Running Config** y guardar en **Startup Config** para persistencia.  
+
+- Las **VLANs extendidas** rara vez se usan en entornos de aprendizaje; se concentran en **proveedores de servicios**.
