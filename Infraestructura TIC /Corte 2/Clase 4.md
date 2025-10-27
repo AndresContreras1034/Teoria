@@ -341,3 +341,64 @@ Switch#
 - Un puerto en **modo troncal** puede transportar múltiples VLANs, tanto de **datos como de voz**.  
 - Esta configuración es **esencial para entornos de voz sobre IP** y redes LAN académicas o empresariales.  
 
+# VLANs Trunk
+
+### Modos de puerto en un switch
+
+Un puerto de switch puede operar en dos modos principales:
+
+1. **Modo Acceso (Access Mode)**
+   - Conecta **dispositivos finales** como PCs, impresoras o teléfonos IP.  
+   - Solo pertenece a **una VLAN** específica.  
+   - No agrega tags VLAN al tráfico que sale por el puerto.  
+
+2. **Modo Troncal (Trunk Mode)**
+   - Conecta **switches entre sí o routers**.  
+   - Transporta **varias VLANs** simultáneamente usando **802.1Q**.  
+   - Los frames llevan un **tag VLAN ID** que permite distinguir el tráfico.  
+   - Si una interfaz no es VLAN de acceso, **por defecto funciona como troncal**.  
+
+---
+
+### Diferencias clave entre Acceso y Troncal
+
+| Característica | Modo Acceso | Modo Troncal |
+|----------------|------------|--------------|
+| Conecta a | Dispositivos finales | Otros switches o routers |
+| VLANs transportadas | 1 VLAN (excepto voz si configurada) | Múltiples VLANs |
+| Tag de VLAN | No | Sí, usando 802.1Q |
+| Uso típico | PCs, impresoras, teléfonos | Trunks entre switches, routers y firewalls |
+| Prioridad | Solo datos del puerto | Permite tráfico priorizado de voz/datos |
+
+---
+
+### VLANs de Acceso y Voz (Ejemplo)
+
+- **Data VLAN** → VLAN 10 → PC de usuario  
+- **Voice VLAN** → VLAN 20 → Teléfono IP  
+
+- Una interfaz de acceso puede soportar **VLAN de datos y de voz simultáneamente**.
+
+---
+
+### Comandos IOS para configurar puertos
+
+| Tarea | Comando IOS | Descripción |
+|-------|------------|-------------|
+| Entrar al switch | `enable` | Modo privilegiado |
+| Entrar a configuración global | `configure terminal` | Configuración de VLANs y interfaces |
+| Seleccionar interfaz | `interface fastEthernet 0/1` | Puerto físico a configurar |
+| Configurar puerto como acceso | `switchport mode access` | Establece modo acceso |
+| Asignar VLAN de datos | `switchport access vlan 10` | Puerto pertenece a VLAN de datos |
+| Configurar VLAN de voz | `switchport voice vlan 20` | Prioriza tráfico de voz |
+| Configurar puerto como troncal | `switchport mode trunk` | Permite transportar múltiples VLANs |
+| Permitir VLANs en troncal | `switchport trunk allowed vlan 10,20` | Filtra las VLANs que pasan por el tronco |
+| Salir de la interfaz | `exit` | Retorna a modo global |
+
+---
+
+**Notas:**
+- Los **puertos de acceso** son para dispositivos finales.  
+- Los **puertos troncales** son esenciales para que los switches compartan varias VLANs en la misma conexión física.  
+- La configuración correcta de **trunks y acceso** es fundamental para mantener segregación de tráfico y seguridad en la red LAN.  
+
