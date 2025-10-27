@@ -278,3 +278,66 @@ graph TB
 - Siempre verificar la **Running Config** y guardar en **Startup Config** para persistencia.  
 
 - Las **VLANs extendidas** rara vez se usan en entornos de aprendizaje; se concentran en **proveedores de servicios**.
+
+  # Switch: Modo Acceso y Modo Troncal
+
+### Modos de un puerto de switch
+
+Un puerto de switch puede operar en dos modos principales:
+
+1. **Modo Acceso (Access Mode)**  
+   - Se conecta a **dispositivos finales** (PCs, impresoras, teléfonos IP).  
+   - Solo pertenece a **una VLAN** específica.  
+   - No agrega tags VLAN al tráfico que sale por el puerto.  
+
+2. **Modo Troncal (Trunk Mode)**  
+   - Se conecta a **otros switches o routers**.  
+   - Permite transportar **varias VLANs** por el mismo enlace físico usando **802.1Q**.  
+   - Los frames de cada VLAN llevan un **tag VLAN ID**.  
+
+---
+
+### VLAN de Datos y VLAN de Voz
+
+- **Data VLAN (VLAN de Datos)**  
+  - Para tráfico de PCs y dispositivos normales.  
+  - Ejemplo: VLAN 10 → “Estudiantes”  
+
+- **Voice VLAN (VLAN de Voz)**  
+  - Para teléfonos IP y tráfico de voz.  
+  - Permite **priorizar el tráfico** usando CoS (Class of Service).  
+  - Ejemplo: VLAN 20 → “Voz”  
+
+- Una interfaz puede configurarse **como puerto de acceso de datos** y simultáneamente soportar **VLAN de voz**.  
+
+---
+
+### Ejemplo de comandos IOS para configurar un puerto
+
+```bash
+Switch> enable
+Switch# configure terminal
+Enter configuration commands, one per line. End with CNTL/Z.
+
+Switch(config)# interface fastEthernet 0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10
+Switch(config-if)# switchport voice vlan 20
+Switch(config-if)# spanning-tree portfast
+Switch(config-if)# exit
+
+Switch(config)# exit
+Switch# write memory
+Building configuration...
+[OK]
+Switch#
+```
+
+---
+
+ **Notas:**
+
+- Un puerto en **modo acceso** solo transporta tráfico de una VLAN (excepto la VLAN de voz si se configura).  
+- Un puerto en **modo troncal** puede transportar múltiples VLANs, tanto de **datos como de voz**.  
+- Esta configuración es **esencial para entornos de voz sobre IP** y redes LAN académicas o empresariales.  
+
