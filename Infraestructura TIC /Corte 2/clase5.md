@@ -256,13 +256,13 @@ Gracias a su proceso de elección jerárquico y recalculo dinámico:
 
 Sin STP, las redes Ethernet modernas serían **propensas al colapso** por saturación, inestabilidad de tablas MAC y bucles infinitos.
 
-
+```mermaid
 
 graph TD
     %% Root Bridge Election
-    A[Switch A<br>(Priority: 32768, MAC: 00:11:22)]:::candidate
-    B[Switch B<br>(Priority: 4096, MAC: 00:33:44)]:::root
-    C[Switch C<br>(Priority: 32768, MAC: 00:55:66)]:::candidate
+    A[Switch A\nPriority: 32768\nMAC: 00:11:22]:::candidate
+    B[Switch B\nPriority: 4096\nMAC: 00:33:44]:::root
+    C[Switch C\nPriority: 32768\nMAC: 00:55:66]:::candidate
 
     %% Connections
     A --- B
@@ -280,4 +280,6 @@ graph TD
     classDef blocked fill:#ffe6e6,stroke:#c00,stroke-width:2px,stroke-dasharray:3 3;
 
     class C blocked
+```
+
 
