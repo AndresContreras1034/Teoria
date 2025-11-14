@@ -498,4 +498,63 @@ Este método es más efectivo en la compresión de un archivo más grande.
 - El **árbol más grande** tendrá **1022 bytes**.  
 - En total, considerando almacenamiento adicional, el tamaño será **1024 bytes**.
 
+  # Algoritmo de Descompresión
+
+## 1. Cálculo del tamaño del árbol (NF)
+
+NF indica cuántos bytes ocupa el árbol codificado.
+
+1. Tomamos el valor encontrado en NF.  
+   Ejemplo: NF = 5.
+2. Lo multiplicamos por 2:  
+   5 × 2 = 10.
+3. Le sumamos 1:  
+   10 + 1 = 11.
+4. Luego multiplicamos ese total por 2:  
+   11 × 2 = 22.
+
+**Resultado:**  
+Debemos leer 22 bytes correspondientes al árbol.
+
+---
+
+## 2. Interpretación del árbol
+
+Después de leer los bytes del árbol, vienen los números significativos, leídos de 2 en 2 bytes:
+
+- Si el valor es `00`, es un nodo interno (frecuencia).
+- Si el valor es `01`, es un nodo terminal (carácter).
+
+👉 El árbol está codificado en preorden, por lo que se recorre primero la izquierda.
+
+Cuando llegamos a un nodo terminal, el siguiente byte representa el carácter.
+
+---
+
+## 3. Ejemplo de lectura de bytes
+
+**Byte 1**  
+10 111 111  
+a n i
+
+**Byte 2**  
+00 100 100  
+t a (espacio)
+
+**Byte 3 (sobró un 0 al final)**  
+0111 10 00 11  
+p a t  
+(Se agotaron los bits)
+
+**Byte 4**  
+101 111 0 00  
+i n a
+
+---
+
+## 4. Duda pendiente
+
+¿Cómo sabemos que son solo 6 y no más? Si quieres, puedo completarte esa explicación en base al formato exacto de tu compresión (Huffman, árbol propio, encabezado, etc.).
+
+
 
