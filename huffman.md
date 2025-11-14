@@ -551,10 +551,3 @@ p a t
 i n a
 
 ---
-
-## 4. Duda pendiente
-
-¿Cómo sabemos que son solo 6 y no más? Si quieres, puedo completarte esa explicación en base al formato exacto de tu compresión (Huffman, árbol propio, encabezado, etc.).
-
-
-
