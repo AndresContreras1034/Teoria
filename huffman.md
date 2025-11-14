@@ -273,7 +273,7 @@ graph TD
     RN --> RNI["110 | i (2)"]
     RN --> RNN["111 | n (2)"]
 ```
-# Conversión de código Huffman a bits
+### Conversión de código Huffman a bits
 
 Supongamos que tenemos este **árbol de Huffman**:
 
@@ -403,7 +403,7 @@ Pasamos a decimal cada byte:
 
 
 
-# 7. Recorrido de Árboles y Transformación Huffman
+## 7. Recorrido de Árboles y Transformación Huffman
 
 Existen **4 formas de recorrer un árbol**:
 
@@ -416,14 +416,14 @@ Existen **4 formas de recorrer un árbol**:
 
 ## Guardar el árbol en alguna forma de recorrido
 
-### 7. Generar árbol Huffman en preorden
+## 7. Generar árbol Huffman en preorden
 ```
 12 4 t 2 v p 8 a 4 a n
 ```
 
 ---
 
-## Pasamos a ASCII
+### Pasamos a ASCII
 ```
 12 4 116  2 32 112 8 97  4 105 110
 ```
@@ -442,7 +442,7 @@ Los caracteres en ASCII:
 
 ---
 
-## Propuesta para diferenciar nodos frecuencia
+### Propuesta para diferenciar nodos frecuencia
 
 Todo lo que sea **-1** es nodo frecuencia. Lo que sea normal es carácter.
 
@@ -453,7 +453,7 @@ Ejemplo:
 
 ---
 
-## Transformada final
+### Transformada final
 
 Regla:
 - Todo lo que sea **-1** lo ponemos como `00`.
@@ -464,6 +464,38 @@ Resultado:
 00 00 1116 00 132 1112 00 197 00 1105 1110
 ```
 
+## Generar el archivo final (Paso 8)
 
+### Estructura del archivo final
+
+```
+NF TREE (22 BITS)                                             NF       ZIP
+5 0 0 0 0 1 116 0 0 1 32 1 112 0 0 1 97 0 0 1 105 1 110       6      190 36 227 120
+```
+
+---
+
+**PESO TOTAL:** 28 BYTES  
+El archivo original era de 12 bytes. Es decir, el algoritmo **aumentó su peso**.
+
+> Si no coloco el árbol, ¿cómo descomprimo? El árbol es la **llave**.
+
+Aunque aumente el peso, **esto está bien**:  
+Este método es más efectivo en la compresión de un archivo más grande.
+
+---
+
+### Observaciones importantes
+
+- El número de nodos terminales es `n - 1`.  
+- Tiene **6 nodos terminales** (regla que se cumple en árboles completos).  
+- Cuando hablamos del concepto de byte, la tabla ASCII tiene 256 símbolos.  
+- El árbol más grande que se puede generar es para **256 símbolos**, lo que implica necesitar `n - 1` nodos frecuencia, es decir **255 nodos frecuencia**.
+
+
+### Tamaño del Árbol Huffman
+
+- El **árbol más grande** tendrá **1022 bytes**.  
+- En total, considerando almacenamiento adicional, el tamaño será **1024 bytes**.
 
 
