@@ -131,6 +131,40 @@ Muchos equipos usan esta organización:
 - 3000–8000 → Desarrollo local
 - 10000+ → Pruebas, microservicios, contenedores
 
+
+# ¿Qué es un socket?
+
+Un socket es la combinación de:
+
+IP + Puerto + Protocolo
+
+## Ejemplo
+
+192.168.1.10:53021 → TCP
+
+Esto es un socket local.
+
+---
+
+## Conexión completa en TCP
+
+Una conexión completa en TCP se identifica por 5 elementos:
+
+Protocolo + IP origen + Puerto origen + IP destino + Puerto destino
+
+A esto se le llama:
+
+**5-tuple de conexión**
+
+---
+
+## Definición conceptual
+
+Un socket es el punto final de comunicación en una red.
+
+Es como un enchufe donde los datos entran y salen.
+
+
 # 100 Puertos
 
 ## Web / HTTP
